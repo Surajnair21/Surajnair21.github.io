@@ -5,95 +5,513 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suraj Nair | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: #0a0e27;
+      color: #e0e7ff;
+      overflow-x: hidden;
+    }
+    
+    .orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+    
+    /* Animated Grid Background */
+    .cyber-grid {
+      background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+    }
+    
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 50px 50px; }
+    }
+    
+    /* Glowing text effect */
+    .glow-text {
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+                   0 0 20px rgba(0, 255, 255, 0.6),
+                   0 0 30px rgba(0, 255, 255, 0.4);
+    }
+    
+    /* Neon borders */
+    .neon-border {
+      border: 2px solid transparent;
+      background: linear-gradient(#0f172a, #0f172a) padding-box,
+                  linear-gradient(135deg, #00ffff, #ff00ff, #00ffff) border-box;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .neon-border::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+      animation: borderRotate 3s linear infinite;
+    }
+    
+    @keyframes borderRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Cyber card */
+    .cyber-card {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    
+    .cyber-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .cyber-card:hover::after {
+      left: 100%;
+    }
+    
+    .cyber-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(0, 255, 255, 0.6);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3),
+                  inset 0 0 20px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* Glitch effect */
+    .glitch {
+      position: relative;
+    }
+    
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+    }
+    
+    .glitch::before {
+      animation: glitch1 2s infinite;
+      color: #00ffff;
+      z-index: -1;
+    }
+    
+    .glitch::after {
+      animation: glitch2 2s infinite;
+      color: #ff00ff;
+      z-index: -1;
+    }
+    
+    @keyframes glitch1 {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+    
+    @keyframes glitch2 {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(2px, -2px); }
+      40% { transform: translate(2px, 2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(-2px, 2px); }
+    }
+    
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    /* Scan line effect */
+    .scanline {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .scanline::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(transparent, rgba(0, 255, 255, 0.1), transparent);
+      animation: scan 3s ease-in-out infinite;
+    }
+    
+    @keyframes scan {
+      0% { top: -100%; }
+      100% { top: 100%; }
+    }
+    
+    /* Skill tag hover */
+    .skill-tag {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-tag::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s, height 0.5s;
+    }
+    
+    .skill-tag:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .skill-tag:hover {
+      transform: scale(1.1) rotate(2deg);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+    
+    /* Cyber button */
+    .cyber-btn {
+      position: relative;
+      background: linear-gradient(135deg, #00ffff, #0080ff);
+      border: none;
+      clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+      transition: all 0.3s;
+    }
+    
+    .cyber-btn:hover {
+      clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+      transform: scale(1.05);
+    }
+    
+    /* Particles background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(0, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: particleFloat 10s infinite;
+    }
+    
+    @keyframes particleFloat {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+    }
+    
+    /* Nav link animation */
+    .nav-link {
+      position: relative;
+      color: #00ffff;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .nav-link::before {
+      content: '>';
+      position: absolute;
+      left: -20px;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    
+    .nav-link:hover::before {
+      left: -15px;
+      opacity: 1;
+    }
+    
+    .nav-link:hover {
+      text-shadow: 0 0 10px rgba(0, 255, 255, 1);
+    }
+    
+    /* Holographic effect */
+    .holographic {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+      border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+    
+    /* Matrix rain effect */
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Profile image glow */
+    .profile-glow {
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.6),
+                  0 0 80px rgba(255, 0, 255, 0.4);
+      border: 3px solid rgba(0, 255, 255, 0.5);
+      animation: profilePulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes profilePulse {
+      0%, 100% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.6), 0 0 80px rgba(255, 0, 255, 0.4); }
+      50% { box-shadow: 0 0 60px rgba(0, 255, 255, 0.8), 0 0 100px rgba(255, 0, 255, 0.6); }
+    }
+    
+    /* Code-like terminal effect */
+    .terminal {
+      font-family: 'Courier New', monospace;
+      color: #00ff00;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <header class="bg-white shadow p-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-bold">Suraj Nair</h1>
-      <nav>
-        <a href="#about" class="mx-3 hover:underline">About</a>
-        <a href="#projects" class="mx-3 hover:underline">Projects</a>
-        <a href="#skills" class="mx-3 hover:underline">Skills</a>
-        <a href="#contact" class="mx-3 hover:underline">Contact</a>
+<body class="cyber-grid">
+  <!-- Particles Background -->
+  <div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+    <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 4.5s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: 1.5s;"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed w-full top-0 z-50 backdrop-blur-md border-b border-cyan-500" style="background: rgba(10, 14, 39, 0.9);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl md:text-3xl font-bold orbitron glow-text">SURAJ NAIR</h1>
+      <nav class="hidden md:flex gap-8">
+        <a href="#about" class="nav-link font-semibold orbitron">ABOUT</a>
+        <a href="#experience" class="nav-link font-semibold orbitron">EXPERIENCE</a>
+        <a href="#projects" class="nav-link font-semibold orbitron">PROJECTS</a>
+        <a href="#skills" class="nav-link font-semibold orbitron">SKILLS</a>
+        <a href="#contact" class="nav-link font-semibold orbitron">CONTACT</a>
       </nav>
     </div>
   </header>
 
-  <section class="text-center py-20 bg-blue-50">
-    <h2 class="text-4xl font-bold mb-4">Hi, I'm Suraj</h2>
-    <p class="text-lg">A passionate Web Developer & Cybersecurity Enthusiast</p>
-  </section>
-
-  <section id="about" class="max-w-4xl mx-auto p-6 text-center">
-    <img src="profile.jpg" alt="Suraj Nair" class="w-40 h-40 mx-auto rounded-full shadow-md mb-4">
-    <h3 class="text-2xl font-bold mb-2">About Me</h3>
-    <p>I am a curious web developer with a strong foundation in front-end technologies. I enjoy building user-friendly, responsive web apps and I'm continuously learning to grow in this space.</p>
-  </section>
-
-  <section id="projects" class="bg-white p-6 mt-6">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-2xl font-bold mb-4">Projects</h3>
-      <ul class="space-y-4">
-        <li>
-          <h4 class="text-xl font-semibold">Crime Mapping</h4>
-          <p>Real-time crime mapping and analysis tool for authorities and citizens.</p>
-        </li>
-        <li>
-          <h4 class="text-xl font-semibold">Hostel Management System</h4>
-          <p>Web-based system for hostel operations management. <br><strong>Tech Stack:</strong> HTML, CSS, JavaScript, SQL, Node.js</p>
-        </li>
-        <li>
-          <h4 class="text-xl font-semibold">Cyberchat</h4>
-          <p>Admin-controlled secure chat app with real-time messaging and emoji support. <br><strong>Tech Stack:</strong> React, Firebase, Tailwind, Vite</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="skills" class="max-w-4xl mx-auto p-6">
-    <h3 class="text-2xl font-bold mb-4">Skills & Certificates</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div>
-        <h4 class="font-semibold">Skills</h4>
-        <ul class="list-disc ml-5">
-          <li>Python, C</li>
-          <li>HTML, CSS, JavaScript</li>
-          <li>MySQL, Linux</li>
-        </ul>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center text-center px-6 pt-20 relative overflow-hidden">
+    <div class="scanline absolute inset-0"></div>
+    <div class="relative z-10">
+      <div class="float">
+        <h2 class="text-6xl md:text-8xl font-bold mb-6 orbitron glitch" data-text="SURAJ NAIR">SURAJ NAIR</h2>
       </div>
-      <div>
-        <h4 class="font-semibold">Certificates</h4>
-        <ul class="list-disc ml-5">
-          <li>Google AI Essentials</li>
-          <li>Red Hat System Administration</li>
-          <li>Intro to Mobile & Front-End Dev</li>
-        </ul>
+      <p class="text-2xl md:text-3xl mb-4 glow-text orbitron">Web Developer</p>
+      <p class="text-xl md:text-2xl mb-12 text-purple-400">Cybersecurity Enthusiast</p>
+      <div class="flex justify-center gap-6 flex-wrap">
+        <a href="#contact" class="cyber-btn px-8 py-4 text-lg font-bold orbitron text-black">Get In Touch</a>
+        <a href="#projects" class="cyber-btn px-8 py-4 text-lg font-bold orbitron text-black" style="background: linear-gradient(135deg, #ff00ff, #8000ff);">View Projects</a>
       </div>
     </div>
   </section>
 
-  <section class="bg-white p-6 mt-6">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-2xl font-bold mb-2">Education & Achievements</h3>
-      <ul class="list-disc ml-5">
-        <li>B.Tech Computer Science – JK Lakshmipat University (2023–2027)</li>
-        <li>12th & 10th – St. Anselm's Sr. Sec. School, Jaipur</li>
-        <li>2nd place in Kaggle ML contest</li>
-        <li>Hackathon Team Leader – HackJKLU</li>
-      </ul>
+  <!-- About Section -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-20 relative z-10">
+    <div class="cyber-card rounded-lg p-8 md:p-12">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <img src="profile.jpg" alt="Suraj Nair" class="w-48 h-48 rounded-full object-cover profile-glow">
+        <div>
+          <h3 class="text-4xl font-bold mb-4 orbitron glow-text">About Me</h3>
+          <div class="terminal text-base mb-4">
+            <p class="mb-2">> Initializing profile...</p>
+            <p class="mb-2">> Loading data...</p>
+            <p>> Status: READY</p>
+          </div>
+          <p class="text-gray-300 leading-relaxed mb-4 text-lg">Passionate web developer pursuing B.Tech in Computer Science at JK Lakshmipat University. With hands-on experience from two internships and multiple projects, I specialize in building cutting-edge, responsive web applications.</p>
+          <p class="text-gray-300 leading-relaxed text-lg">I'm constantly exploring new technologies, diving deep into cybersecurity challenges, and leading teams to victory in hackathons. My mission: to create digital experiences that push the boundaries of what's possible.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="contact" class="max-w-4xl mx-auto p-6">
-    <h3 class="text-2xl font-bold mb-4">Contact</h3>
-    <p>Email: <a class="text-blue-600" href="mailto:nairsuraj2111@gmail.com">nairsuraj2111@gmail.com</a></p>
-    <p>Phone: <a class="text-blue-600" href="tel:8619331834">8619331834</a></p>
-    <p>GitHub: <a class="text-blue-600" href="https://github.com/Surajnair21" target="_blank">Surajnair21</a></p>
-    <p>LinkedIn: <a class="text-blue-600" href="https://linkedin.com/in/suraj-nair-8a6ba0285" target="_blank">suraj-nair</a></p>
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 px-6 relative z-10">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-5xl font-bold mb-12 text-center orbitron glow-text">Experience</h3>
+      <div class="space-y-6">
+        <div class="cyber-card rounded-lg p-8 neon-border">
+          <div class="flex items-start gap-4">
+            <div class="bg-gradient-to-br from-cyan-500 to-blue-500 p-4 rounded-lg">
+              <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="text-2xl font-bold orbitron text-cyan-400">Full Stack Web Developer</h4>
+              <p class="text-purple-400 font-semibold text-xl mb-2">Solviser Pvt Ltd</p>
+              <p class="text-gray-300 mb-4 text-lg">Engineered full-stack web applications with modern frameworks. Architected scalable solutions combining powerful frontend interfaces with robust backend systems.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="holographic px-4 py-2 rounded font-semibold text-cyan-400">Full Stack</span>
+                <span class="holographic px-4 py-2 rounded font-semibold text-purple-400">Web Development</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cyber-card rounded-lg p-8 neon-border">
+          <div class="flex items-start gap-4">
+            <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-lg">
+              <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="text-2xl font-bold orbitron text-cyan-400">Web Developer</h4>
+              <p class="text-purple-400 font-semibold text-xl mb-2">AIC-JKLU</p>
+              <p class="text-gray-300 mb-4 text-lg">Crafted responsive web interfaces for the Atal Incubation Centre. Collaborated with cross-functional teams to deliver innovative digital solutions.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="holographic px-4 py-2 rounded font-semibold text-cyan-400">Frontend</span>
+                <span class="holographic px-4 py-2 rounded font-semibold text-purple-400">UI/UX</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer class="bg-gray-200 text-center py-4 mt-6">
-    <p>&copy; 2025 Suraj Nair. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+    <h3 class="text-5xl font-bold mb-12 text-center orbitron glow-text">Projects</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="cyber-card rounded-lg overflow-hidden group">
+        <div class="h-48 bg-gradient-to-br from-red-500 via-pink-500 to-purple-500 relative overflow-hidden">
+          <div class="absolute inset-0 scanline"></div>
+        </div>
+        <div class="p-6">
+          <h4 class="text-2xl font-bold mb-3 orbitron text-cyan-400">Crime Mapping</h4>
+          <p class="text-gray-300 mb-4 text-base">Real-time crime data visualization and analysis platform enabling authorities and citizens to track criminal activities with precision.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-800 text-cyan-400 px-3 py-1 rounded text-xs font-semibold border border-cyan-500">Data Visualization</span>
+            <span class="bg-gray-800 text-purple-400 px-3 py-1 rounded text-xs font-semibold border border-purple-500">Real-time</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cyber-card rounded-lg overflow-hidden group">
+        <div class="h-48 bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500 relative overflow-hidden">
+          <div class="absolute inset-0 scanline"></div>
+        </div>
+        <div class="p-6">
+          <h4 class="text-2xl font-bold mb-3 orbitron text-cyan-400">Hostel Management System</h4>
+          <p class="text-gray-300 mb-4 text-base">Comprehensive hostel management system streamlining operations with intuitive interfaces and powerful backend logic.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-800 text-orange-400 px-3 py-1 rounded text-xs font-semibold border border-orange-500">HTML/CSS/JS</span>
+            <span class="bg-gray-800 text-green-400 px-3 py-1 rounded text-xs font-semibold border border-green-500">Node.js</span>
+            <span class="bg-gray-800 text-blue-400 px-3 py-1 rounded text-xs font-semibold border border-blue-500">SQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cyber-card rounded-lg overflow-hidden group">
+        <div class="h-48 bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-500 relative overflow-hidden">
+          <div class="absolute inset-0 scanline"></div>
+        </div>
+        <div class="p-6">
+          <h4 class="text-2xl font-bold mb-3 orbitron text-cyan-400">Cyberchat</h4>
+          <p class="text-gray-300 mb-4 text-base">Secure, admin-controlled chat application featuring real-time messaging, emoji support, and encrypted communications.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-800 text-cyan-400 px-3 py-1 rounded text-xs font-semibold border border-cyan-500">React</span>
+            <span class="bg-gray-800 text-yellow-400 px-3 py-1 rounded text-xs font-semibold border border-yellow-500">Firebase</span>
+            <span class="bg-gray-800 text-purple-400 px-3 py-1 rounded text-xs font-semibold border border-purple-500">Tailwind</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 px-6 relative z-10">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-5xl font-bold mb-12 text-center orbitron glow-text">Skills & Certificates</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="cyber-card rounded-lg p-8 neon-border">
+          <h4 class="text-3xl font-bold mb-6 orbitron text-cyan-400">Technical Skills</h4>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-tag bg-gradient-to-r from-blue-600 to-blue-400 px-4 py-2 rounded font-bold orbitron text-sm">Python</span>
+            <span class="skill-tag bg-gradient-to-r from-yellow-500 to-yellow-400 px-4 py-2 rounded font-bold orbitron text-sm text-black">JavaScript</span>
+            <span class="skill-tag bg-gradient-to-r from-orange-600 to-red-500 px-4 py-2 rounded font-bold orbitron text-sm">HTML/CSS</span>
+            <span class="skill-tag bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded font-bold orbitron text-sm">Node.js</span>
+            <span class="skill-tag bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 rounded font-bold orbitron text-sm">React</span>
+            <span class="skill-tag bg-gradient-to-r from-gray-900 to-black px-4 py-2 rounded font-bold orbitron text-sm border border-white">Next.js</span>
+            <span class="skill-tag bg-gradient-to-r from-blue-500 to-cyan-400 px-4 py-2 rounded font-bold orbitron text-sm">MySQL</span>
+            <span class="skill-tag bg-gradient-to-r from-blue-700 to-indigo-500 px-4 py-2 rounded font-bold orbitron text-sm">PostgreSQL</span>
+            <span class="skill-tag bg-gradient-to-r from-cyan-600 to-blue-400 px-4 py-2 rounded font-bold orbitron text-sm">Tailwind CSS</span>
+            <span class="skill-tag bg-gradient-to-r from-orange-600 to-red-500 px-4 py-2 rounded font-bold orbitron text-sm">Git</span>
+            <span class="skill-tag bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded font-bold orbitron text-sm">MongoDB</span>
+            <span class="skill-tag bg-gradient-to-r from-yellow-500 to-orange-500 px-4 py-2 rounded font-bold orbitron text-sm text-black">Firebase</span>
+            <span class="skill-tag bg-gradient-to-r from-gray-700 to-gray-500 px-4 py-2 rounded font-bold orbitron text-sm">C</span>
+            <span class="skill-tag bg-gradient-to-r from-yellow-600 to-orange-600 px-4 py-2 rounded font-bold orbitron text-sm">Linux</span>
+            <span class="skill-tag bg-gradient-to-r from-blue-900 to-purple-900 px-4 py-2 rounded font-bold orbitron text-sm">Kali Linux</span>
+            <span class="skill-tag bg-gradient-to-r from-green-500 to-teal-500 px-4 py-2 rounded font-bold orbitron text-sm">REST API</span>
+          </div>
+        </div>
+
+        <div class="cyber-card rounded-lg p-8 neon-border">
+          <h4 class="text-3xl font-bold mb-6 orbitron text-cyan-400">Certificates</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 group">
+              <svg class="w-6 h-6 text-cyan-400 mt-1 flex-shrink-0 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-300 text-lg group-hover:text-cyan-400 transition-colors">Google AI Essentials</span>
+            </li>
+            <li class="flex items-start gap-3 group">
+              <svg class="w-6 h-6 text-cyan-400 mt-1 flex-shrink-0 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0
