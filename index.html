@@ -1,245 +1,468 @@
-<body class="cyber-grid">
-  <div class="particles">
-    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
-    <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
-    <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
-    <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
-    <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
-    <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
-    <div class="particle" style="left: 80%; animation-delay: 4.5s;"></div>
-    <div class="particle" style="left: 90%; animation-delay: 1.5s;"></div>
-  </div>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suraj Nair | CyberSec & Web Dev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            dark: '#050a14',
+                            light: '#0a1120',
+                            accent: '#00f2ff', // Neon Cyan
+                            secondary: '#7000ff', // Electric Purple
+                            text: '#e2e8f0'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050a14;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
 
-  <header class="fixed w-full top-0 z-50 backdrop-blur-md border-b border-cyan-500" style="background: rgba(10, 14, 39, 0.9);">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl font-bold orbitron glow-text">SURAJ NAIR</h1>
-      <nav class="hidden md:flex gap-8">
-        <a href="#about" class="nav-link font-semibold orbitron">ABOUT</a>
-        <a href="#experience" class="nav-link font-semibold orbitron">EXPERIENCE</a>
-        <a href="#projects" class="nav-link font-semibold orbitron">PROJECTS</a>
-        <a href="#skills" class="nav-link font-semibold orbitron">SKILLS</a>
-        <a href="#contact" class="nav-link font-semibold orbitron">CONTACT</a>
-      </nav>
-    </div>
-  </header>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a1120;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2ff;
+        }
 
-  <section class="min-h-screen flex items-center justify-center text-center px-6 pt-20 relative overflow-hidden">
-    <div class="scanline absolute inset-0"></div>
-    <div class="relative z-10">
-      <div class="float">
-        <h2 class="text-6xl md:text-8xl font-bold mb-6 orbitron glitch" data-text="SURAJ NAIR">SURAJ NAIR</h2>
-      </div>
-      <p class="text-2xl md:text-3xl mb-4 glow-text orbitron">Web Developer</p>
-      <p class="text-xl md:text-2xl mb-12 text-purple-400">Cybersecurity Enthusiast</p>
-      <div class="flex justify-center gap-6 flex-wrap">
-        <a href="#contact" class="cyber-btn px-8 py-4 text-lg font-bold orbitron text-black">Get In Touch</a>
-        <a href="#projects" class="cyber-btn px-8 py-4 text-lg font-bold orbitron text-black" style="background: linear-gradient(135deg, #ff00ff, #8000ff);">View Projects</a>
-      </div>
-    </div>
-  </section>
+        /* Cyber Grid Background */
+        .cyber-grid {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
 
-  <section id="about" class="max-w-5xl mx-auto px-6 py-20 relative z-10">
-    <div class="cyber-card rounded-lg p-8 md:p-12">
-      <div class="flex flex-col md:flex-row items-center gap-8">
-        <img src="profile.jpg" alt="Suraj Nair" class="w-48 h-48 rounded-full object-cover profile-glow">
-        <div>
-          <h3 class="text-4xl font-bold mb-4 orbitron glow-text">About Me</h3>
-          <div class="terminal text-base mb-4">
-            <p class="mb-2">> Initializing profile...</p>
-            <p class="mb-2">> Loading data...</p>
-            <p>> Status: READY</p>
-          </div>
-          <p class="text-gray-300 leading-relaxed mb-4 text-lg">Passionate web developer pursuing B.Tech in Computer Science at JK Lakshmipat University. With hands-on experience from two internships and multiple projects, I specialize in building cutting-edge, responsive web applications.</p>
-          <p class="text-gray-300 leading-relaxed text-lg">I'm constantly exploring new technologies, diving deep into cybersecurity challenges, and leading teams to victory in hackathons. My mission: to create digital experiences that push the boundaries of what's possible.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(10, 17, 32, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-  <section id="experience" class="py-20 px-6 relative z-10">
-    <div class="max-w-5xl mx-auto">
-      <h3 class="text-5xl font-bold mb-12 text-center orbitron glow-text">Experience</h3>
-      <div class="space-y-6">
-        <div class="cyber-card rounded-lg p-8 neon-border">
-          <div class="flex items-start gap-4">
-            <div class="bg-gradient-to-br from-cyan-500 to-blue-500 p-4 rounded-lg">
-              <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h4 class="text-2xl font-bold orbitron text-cyan-400">Full Stack Web Developer</h4>
-              <p class="text-purple-400 font-semibold text-xl mb-2">Solviser Pvt Ltd</p>
-              <p class="text-gray-300 mb-4 text-lg">Engineered full-stack web applications with modern frameworks. Architected scalable solutions combining powerful frontend interfaces with robust backend systems.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="holographic px-4 py-2 rounded font-semibold text-cyan-400">Full Stack</span>
-                <span class="holographic px-4 py-2 rounded font-semibold text-purple-400">Web Development</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cyber-card rounded-lg p-8 neon-border">
-          <div class="flex items-start gap-4">
-            <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-lg">
-              <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h4 class="text-2xl font-bold orbitron text-cyan-400">Web Developer</h4>
-              <p class="text-purple-400 font-semibold text-xl mb-2">AIC-JKLU</p>
-              <p class="text-gray-300 mb-4 text-lg">Crafted responsive web interfaces for the Atal Incubation Centre. Collaborated with cross-functional teams to deliver innovative digital solutions.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="holographic px-4 py-2 rounded font-semibold text-cyan-400">Frontend</span>
-                <span class="holographic px-4 py-2 rounded font-semibold text-purple-400">UI/UX</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        .glass-card:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+            transform: translateY(-5px);
+        }
 
-  <section id="projects" class="max-w-6xl mx-auto px-6 py-20 relative z-10">
-    <h3 class="text-5xl font-bold mb-12 text-center orbitron glow-text">Projects</h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <div class="cyber-card rounded-lg overflow-hidden group">
-        <div class="h-48 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 relative overflow-hidden">
-          <div class="absolute inset-0 scanline"></div>
-        </div>
-        <div class="p-6">
-          <h4 class="text-2xl font-bold mb-3 orbitron text-cyan-400">Custom SSH Honeypot</h4>
-          <p class="text-gray-300 mb-4 text-base">A custom lightweight SSH honeypot mimicking Linux servers. Features a real-time WebSocket dashboard to visualize live attacks and capture credentials.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-800 text-cyan-400 px-3 py-1 rounded text-xs font-semibold border border-cyan-500">Python/FastAPI</span>
-            <span class="bg-gray-800 text-purple-400 px-3 py-1 rounded text-xs font-semibold border border-purple-500">WebSocket</span>
-             <span class="bg-gray-800 text-green-400 px-3 py-1 rounded text-xs font-semibold border border-green-500">Kali Linux</span>
-          </div>
-        </div>
-      </div>
+        /* Glitch Effect Text */
+        .glitch-text {
+            position: relative;
+        }
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #050a14;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 #00f2ff;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 #7000ff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
 
-      <div class="cyber-card rounded-lg overflow-hidden group">
-        <div class="h-48 bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500 relative overflow-hidden">
-          <div class="absolute inset-0 scanline"></div>
-        </div>
-        <div class="p-6">
-          <h4 class="text-2xl font-bold mb-3 orbitron text-cyan-400">Hostel Management System</h4>
-          <p class="text-gray-300 mb-4 text-base">Comprehensive hostel management system streamlining operations with intuitive interfaces and powerful backend logic.</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-800 text-orange-400 px-3 py-1 rounded text-xs font-semibold border border-orange-500">HTML/CSS/JS</span>
-            <span class="bg-gray-800 text-green-400 px-3 py-1 rounded text-xs font-semibold border border-green-500">Node.js</span>
-            <span class="bg-gray-800 text-blue-400 px-3 py-1 rounded text-xs font-semibold border border-blue-500">SQL</span>
-          </div>
-        </div>
-      </div>
+        @keyframes glitch-anim {
+            0% { clip: rect(12px, 9999px, 5px, 0); }
+            100% { clip: rect(65px, 9999px, 100px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            100% { clip: rect(12px, 9999px, 5px, 0); }
+        }
 
-      <div class="cyber-card rounded-lg overflow-hidden group">
-        <div class="h-48 bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-500 relative overflow-hidden">
-          <div class="absolute inset-0 scanline"></div>
-        </div>
-        <div class="p-6">
-          <h4 class="text-2xl font-bold mb-3 orbitron text-cyan-400">Cyberchat</h4>
-          <p class="text-gray-300 mb-4 text-base">Secure, admin-controlled chat application featuring real-time messaging, emoji support, and encrypted communications.</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-800 text-cyan-400 px-3 py-1 rounded text-xs font-semibold border border-cyan-500">React</span>
-            <span class="bg-gray-800 text-yellow-400 px-3 py-1 rounded text-xs font-semibold border border-yellow-500">Firebase</span>
-            <span class="bg-gray-800 text-purple-400 px-3 py-1 rounded text-xs font-semibold border border-purple-500">Tailwind</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="py-20 px-6 relative z-10">
-    <div class="max-w-5xl mx-auto">
-      <h3 class="text-5xl font-bold mb-12 text-center orbitron glow-text">Skills & Certificates</h3>
-      <div class="grid md:grid-cols-2 gap-8">
+        /* Utility */
+        .text-gradient {
+            background: linear-gradient(to right, #00f2ff, #7000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
-        <div class="cyber-card rounded-lg p-8 neon-border">
-          <h4 class="text-3xl font-bold mb-6 orbitron text-cyan-400">Technical Skills</h4>
-          <div class="flex flex-wrap gap-3">
-            <span class="skill-tag bg-gradient-to-r from-blue-600 to-blue-400 px-4 py-2 rounded font-bold orbitron text-sm">Python</span>
-            <span class="skill-tag bg-gradient-to-r from-yellow-500 to-yellow-400 px-4 py-2 rounded font-bold orbitron text-sm text-black">JavaScript</span>
-            <span class="skill-tag bg-gradient-to-r from-orange-600 to-red-500 px-4 py-2 rounded font-bold orbitron text-sm">HTML/CSS</span>
-            <span class="skill-tag bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded font-bold orbitron text-sm">Node.js</span>
-            <span class="skill-tag bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 rounded font-bold orbitron text-sm">React</span>
-            <span class="skill-tag bg-gradient-to-r from-gray-900 to-black px-4 py-2 rounded font-bold orbitron text-sm border border-white">Next.js</span>
-            <span class="skill-tag bg-gradient-to-r from-blue-500 to-cyan-400 px-4 py-2 rounded font-bold orbitron text-sm">MySQL</span>
-            <span class="skill-tag bg-gradient-to-r from-blue-700 to-indigo-500 px-4 py-2 rounded font-bold orbitron text-sm">PostgreSQL</span>
-            <span class="skill-tag bg-gradient-to-r from-cyan-600 to-blue-400 px-4 py-2 rounded font-bold orbitron text-sm">Tailwind CSS</span>
-            <span class="skill-tag bg-gradient-to-r from-orange-600 to-red-500 px-4 py-2 rounded font-bold orbitron text-sm">Git</span>
-            <span class="skill-tag bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded font-bold orbitron text-sm">MongoDB</span>
-            <span class="skill-tag bg-gradient-to-r from-yellow-500 to-orange-500 px-4 py-2 rounded font-bold orbitron text-sm text-black">Firebase</span>
-            <span class="skill-tag bg-gradient-to-r from-gray-700 to-gray-500 px-4 py-2 rounded font-bold orbitron text-sm">C</span>
-            <span class="skill-tag bg-gradient-to-r from-yellow-600 to-orange-600 px-4 py-2 rounded font-bold orbitron text-sm">Linux</span>
-            <span class="skill-tag bg-gradient-to-r from-blue-900 to-purple-900 px-4 py-2 rounded font-bold orbitron text-sm">Kali Linux</span>
-            <span class="skill-tag bg-gradient-to-r from-green-500 to-teal-500 px-4 py-2 rounded font-bold orbitron text-sm">REST API</span>
-          </div>
-        </div>
+        .code-block {
+            font-family: 'JetBrains Mono', monospace;
+            background: #0f172a;
+            border-left: 3px solid #00f2ff;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyber-accent selection:text-black">
 
-        <div class="cyber-card rounded-lg p-8 neon-border">
-          <h4 class="text-3xl font-bold mb-6 orbitron text-cyan-400">Certificates</h4>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3 group">
-              <svg class="w-6 h-6 text-cyan-400 mt-1 flex-shrink-0 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300 text-lg group-hover:text-cyan-400 transition-colors">Google AI Essentials</span>
-            </li>
-            <li class="flex items-start gap-3 group">
-              <svg class="w-6 h-6 text-cyan-400 mt-1 flex-shrink-0 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300 text-lg group-hover:text-cyan-400 transition-colors">Red Hat System Administration</span>
-            </li>
-            <li class="flex items-start gap-3 group">
-              <svg class="w-6 h-6 text-cyan-400 mt-1 flex-shrink-0 group-hover:animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300 text-lg group-hover:text-cyan-400 transition-colors">Intro to Mobile & Front-End Development</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Background Elements -->
+    <div class="fixed inset-0 cyber-grid z-[-1]"></div>
+    <div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-cyber-secondary via-cyber-accent to-cyber-secondary z-50"></div>
 
-  <section id="contact" class="py-20 px-6 relative z-10">
-    <div class="max-w-4xl mx-auto cyber-card rounded-lg p-10 neon-border text-center">
-      <h3 class="text-5xl font-bold mb-10 orbitron glow-text">Contact Me</h3>
-      <p class="text-gray-300 text-lg mb-12"> Feel free to reach out for collaborations, internships, or just a tech chat! </p>
-      
-      <div class="grid md:grid-cols-2 gap-8 text-left">
-        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 holographic p-4 rounded text-center sm:text-left">
-          <svg class="w-8 h-8 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m0 0l4-4m-4 4l4 4m8-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <a href="mailto:nairsuraj2111@gmail.com" class="text-lg md:text-xl text-cyan-400 hover:underline break-all">nairsuraj2111@gmail.com</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-40 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold font-mono tracking-tighter hover:text-cyber-accent transition-colors">
+                &lt;Suraj/&gt;
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 items-center font-mono text-sm">
+                <a href="#about" class="hover:text-cyber-accent transition-colors"><span class="text-cyber-accent">01.</span> About</a>
+                <a href="#experience" class="hover:text-cyber-accent transition-colors"><span class="text-cyber-accent">02.</span> Experience</a>
+                <a href="#projects" class="hover:text-cyber-accent transition-colors"><span class="text-cyber-accent">03.</span> Projects</a>
+                <a href="#contact" class="px-5 py-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 rounded transition-all">Contact Me</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-cyber-accent" id="mobile-menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
-    
-        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 holographic p-4 rounded text-center sm:text-left">
-          <svg class="w-8 h-8 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.789 1.106l1.272 2.548a2 2 0 01-.45 2.316L8.414 10.414a16.014 16.014 0 007.172 7.172l1.444-1.475a2 2 0 012.316-.45l2.548 1.272A2 2 0 0121 19.72V22a2 2 0 01-2 2h-1C9.716 24 0 14.284 0 3V2a2 2 0 012-2h1c.414 0 .828.034 1.232.101L3 5z" />
-          </svg>
-          <a href="tel:+918619331834" class="text-lg md:text-xl text-green-400 hover:underline">+91 8619331834</a>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden bg-cyber-light border-b border-gray-800" id="mobile-menu">
+            <div class="flex flex-col p-6 space-y-4 font-mono">
+                <a href="#about" class="hover:text-cyber-accent block">01. About</a>
+                <a href="#experience" class="hover:text-cyber-accent block">02. Experience</a>
+                <a href="#projects" class="hover:text-cyber-accent block">03. Projects</a>
+                <a href="#contact" class="text-cyber-accent block">04. Contact</a>
+            </div>
         </div>
-    
-        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 holographic p-4 rounded text-center sm:text-left">
-          <svg class="w-8 h-8 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M12 .297a12 12 0 00-3.8 23.392c.6.113.82-.26.82-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61a3.183 3.183 0 00-1.335-1.757c-1.09-.745.083-.729.083-.729a2.526 2.526 0 011.842 1.238 2.56 2.56 0 003.497 1 2.564 2.564 0 01.764-1.61c-2.667-.304-5.467-1.334-5.467-5.931a4.646 4.646 0 011.238-3.222 4.31 4.31 0 01.118-3.176s1.005-.322 3.3 1.23a11.38 11.38 0 016 0c2.294-1.552 3.298-1.23 3.298-1.23a4.31 4.31 0 01.12 3.176 4.646 4.646 0 011.236 3.222c0 4.61-2.803 5.625-5.476 5.922a2.874 2.874 0 01.82 2.23v3.308c0 .32.218.694.825.576A12 12 0 0012 .297z" clip-rule="evenodd"></path>
-          </svg>
-          <a href="https://github.com/Surajnair21" target="_blank" class="text-lg md:text-xl hover:underline break-all">github.com/Surajnair21</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+        <!-- Floating shapes for aesthetic -->
+        <div class="absolute top-1/4 left-10 w-32 h-32 bg-cyber-secondary/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 right-10 w-64 h-64 bg-cyber-accent/10 rounded-full blur-3xl animate-pulse-slow"></div>
+
+        <div class="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <p class="text-cyber-accent font-mono mb-4 text-lg">Hello, World! I am</p>
+                <h1 class="text-6xl md:text-7xl font-bold mb-4 tracking-tight glitch-text" data-text="SURAJ NAIR">
+                    SURAJ NAIR
+                </h1>
+                <h2 class="text-3xl md:text-4xl font-light text-gray-400 mb-6 flex items-center gap-2">
+                    I build <span id="typewriter" class="text-white font-semibold border-r-2 border-cyber-accent pr-1 animate-pulse"></span>
+                </h2>
+                <p class="text-gray-400 text-lg leading-relaxed max-w-lg mb-8">
+                    Bridging the gap between robust <span class="text-cyber-accent">Web Development</span> and secure <span class="text-cyber-secondary">Cyber Infrastructure</span>.
+                    Currently pursuing B.Tech in CS at JK Lakshmipat University.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#projects" class="bg-cyber-accent text-black font-bold px-8 py-3 rounded hover:shadow-[0_0_20px_rgba(0,242,255,0.5)] transition-all">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="border border-gray-600 px-8 py-3 rounded hover:border-cyber-accent hover:text-cyber-accent transition-all font-mono">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Graphic/Terminal visualization -->
+            <div class="order-1 md:order-2 relative animate-float">
+                <div class="glass-card rounded-xl p-2 max-w-md mx-auto transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <div class="flex gap-2 mb-4 p-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="code-block p-4 rounded text-sm text-gray-300 space-y-2">
+                        <p><span class="text-purple-400">const</span> <span class="text-blue-400">developer</span> = {</p>
+                        <p class="pl-4">name: <span class="text-green-400">'Suraj Nair'</span>,</p>
+                        <p class="pl-4">skills: [<span class="text-green-400">'Python'</span>, <span class="text-green-400">'React'</span>, <span class="text-green-400">'Kali Linux'</span>],</p>
+                        <p class="pl-4">mission: <span class="text-green-400">'Secure the web, build the future.'</span></p>
+                        <p class="pl-4">status: <span class="text-yellow-400">'Ready for hire'</span></p>
+                        <p>}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    
-        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 holographic p-4 rounded text-center sm:text-left">
-          <svg class="w-8 h-8 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4.98 3.5C4.98 5 3.9 6 2.5 6S0 5 0 3.5 1.1 1 2.5 1 4.98 2 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.16h.05c.53-1 1.84-2.16 3.78-2.16C19.35 8 21 10 21 14v10h-4v-9.25c0-2.2-.78-3.75-2.73-3.75-1.49 0-2.38 1-2.77 2-.14.34-.18.8-.18 1.27V24h-4V8z"/>
-          </svg>
-          <a href="https://www.linkedin.com/in/suraj-nair-8a6ba0285" target="_blank" class="text-lg md:text-xl text-blue-400 hover:underline break-all">linkedin.com/in/suraj-nair-8a6ba0285</a>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 flex items-center gap-4">
+            <span class="text-cyber-accent font-mono text-2xl">02.</span> Experience
+            <div class="h-px bg-gray-800 flex-grow max-w-xs"></div>
+        </h2>
+
+        <div class="space-y-8">
+            <!-- Job 1 -->
+            <div class="glass-card p-8 rounded-xl relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1 h-full bg-cyber-accent group-hover:h-full transition-all duration-300"></div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-cyber-accent transition-colors">Full Stack Web Developer</h3>
+                        <p class="text-cyber-secondary font-mono">Solviser Pvt Ltd</p>
+                    </div>
+                    <span class="text-gray-500 font-mono text-sm bg-gray-900 px-3 py-1 rounded border border-gray-800 mt-2 md:mt-0">Internship</span>
+                </div>
+                <ul class="space-y-2 text-gray-400 list-disc list-inside marker:text-cyber-accent">
+                    <li>Engineered full-stack web applications using modern frameworks.</li>
+                    <li>Architected scalable solutions combining powerful frontend interfaces with robust backend systems.</li>
+                </ul>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="glass-card p-8 rounded-xl relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1 h-full bg-purple-500 group-hover:h-full transition-all duration-300"></div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">Web Developer</h3>
+                        <p class="text-cyber-secondary font-mono">AIC-JKLU (Atal Incubation Centre)</p>
+                    </div>
+                    <span class="text-gray-500 font-mono text-sm bg-gray-900 px-3 py-1 rounded border border-gray-800 mt-2 md:mt-0">Internship</span>
+                </div>
+                <ul class="space-y-2 text-gray-400 list-disc list-inside marker:text-purple-500">
+                    <li>Crafted responsive web interfaces and optimized UI/UX.</li>
+                    <li>Collaborated with cross-functional teams to deliver digital solutions for startups.</li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 bg-cyber-light/30 border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Technical Arsenal</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <!-- Skill Items -->
+                <div class="glass-card p-6 rounded hover:bg-white/5 transition-colors">
+                    <div class="text-cyber-accent mb-2 text-2xl font-mono">&lt;/&gt;</div>
+                    <h3 class="font-bold mb-2">Frontend</h3>
+                    <p class="text-sm text-gray-400">React, Next.js, Tailwind, HTML/CSS</p>
+                </div>
+                <div class="glass-card p-6 rounded hover:bg-white/5 transition-colors">
+                    <div class="text-cyber-secondary mb-2 text-2xl font-mono">{ }</div>
+                    <h3 class="font-bold mb-2">Backend</h3>
+                    <p class="text-sm text-gray-400">Node.js, Python, FastAPI, REST API</p>
+                </div>
+                <div class="glass-card p-6 rounded hover:bg-white/5 transition-colors">
+                    <div class="text-green-400 mb-2 text-2xl font-mono">_</div>
+                    <h3 class="font-bold mb-2">Database</h3>
+                    <p class="text-sm text-gray-400">MySQL, PostgreSQL, MongoDB, Firebase</p>
+                </div>
+                <div class="glass-card p-6 rounded hover:bg-white/5 transition-colors">
+                    <div class="text-red-400 mb-2 text-2xl font-mono">#</div>
+                    <h3 class="font-bold mb-2">Security/Ops</h3>
+                    <p class="text-sm text-gray-400">Kali Linux, Git, Linux Admin, C</p>
+                </div>
+            </div>
+
+            <!-- Certs -->
+            <div class="mt-12 flex flex-wrap justify-center gap-4">
+                <span class="px-4 py-2 rounded-full border border-gray-700 bg-gray-900/50 text-sm text-gray-300 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> Google AI Essentials
+                </span>
+                <span class="px-4 py-2 rounded-full border border-gray-700 bg-gray-900/50 text-sm text-gray-300 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-red-500 rounded-full"></span> Red Hat Admin
+                </span>
+                <span class="px-4 py-2 rounded-full border border-gray-700 bg-gray-900/50 text-sm text-gray-300 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Mobile & Frontend Dev
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 flex items-center gap-4 justify-end">
+            <div class="h-px bg-gray-800 flex-grow max-w-xs"></div>
+            Projects <span class="text-cyber-accent font-mono text-2xl">.03</span>
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Project 1 (Featured) -->
+            <div class="glass-card rounded-xl overflow-hidden group md:col-span-2">
+                <div class="h-full flex flex-col md:flex-row">
+                    <div class="bg-gray-800 md:w-1/2 p-6 flex items-center justify-center relative overflow-hidden">
+                        <!-- Mock Terminal UI -->
+                        <div class="w-full h-48 bg-black rounded border border-gray-700 p-2 font-mono text-xs text-green-500 overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity">
+                            > starting honeypot service...<br>
+                            > listening on port 2222...<br>
+                            <span class="text-red-500">> [ALERT] Unauthorized access attempt from 192.168.1.105</span><br>
+                            > capturing credentials...<br>
+                            > websocket stream active...
+                        </div>
+                    </div>
+                    <div class="p-8 md:w-1/2 flex flex-col justify-center">
+                        <h3 class="text-cyber-accent font-mono text-sm mb-2">Featured Project</h3>
+                        <h4 class="text-2xl font-bold mb-4 text-white">Custom SSH Honeypot</h4>
+                        <p class="text-gray-400 mb-6 text-sm">
+                            A lightweight Python-based SSH honeypot that mimics Linux servers. Features a real-time WebSocket dashboard to visualize attacks live and harvest attacker credentials for analysis.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6 font-mono text-xs text-cyber-secondary">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>WebSocket</span>
+                            <span>Kali</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://github.com/Surajnair21" target="_blank" class="text-white hover:text-cyber-accent">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="glass-card rounded-xl p-6 hover:-translate-y-2 transition-transform">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="text-blue-400">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Hostel Mgmt System</h3>
+                <p class="text-gray-400 text-sm mb-4">Comprehensive management system for university housing operations with SQL backend.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-500">
+                    <span>Node.js</span>
+                    <span>SQL</span>
+                    <span>HTML/CSS</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="glass-card rounded-xl p-6 hover:-translate-y-2 transition-transform">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="text-purple-400">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-2">CyberChat</h3>
+                <p class="text-gray-400 text-sm mb-4">Secure, real-time messaging application with admin controls and encrypted comms.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-500">
+                    <span>React</span>
+                    <span>Firebase</span>
+                    <span>Tailwind</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 text-center">
+        <div class="max-w-2xl mx-auto glass-card rounded-2xl p-10 md:p-16 border-t border-cyber-accent/20">
+            <p class="text-cyber-accent font-mono mb-4">04. What's Next?</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
+            <p class="text-gray-400 text-lg mb-10">
+                Whether you have a question about cybersecurity, want to collaborate on a web project, or just want to say hi, my inbox is always open.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-10">
+                <a href="mailto:nairsuraj2111@gmail.com" class="flex items-center gap-3 px-6 py-4 bg-cyber-light border border-gray-700 rounded hover:border-cyber-accent transition-all group">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-cyber-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <span class="text-sm">nairsuraj2111@gmail.com</span>
+                </a>
+                <a href="tel:+918619331834" class="flex items-center gap-3 px-6 py-4 bg-cyber-light border border-gray-700 rounded hover:border-green-400 transition-all group">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.789 1.106l1.272 2.548a2 2 0 01-.45 2.316L8.414 10.414a16.014 16.014 0 007.172 7.172l1.444-1.475a2 2 0 012.316-.45l2.548 1.272A2 2 0 0121 19.72V22a2 2 0 01-2 2h-1C9.716 24 0 14.284 0 3V2a2 2 0 012-2h1c.414 0 .828.034 1.232.101L3 5z"></path></svg>
+                    <span class="text-sm">+91 8619331834</span>
+                </a>
+            </div>
+
+            <div class="flex justify-center gap-6">
+                <a href="https://github.com/Surajnair21" target="_blank" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/suraj-nair-8a6ba0285" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-600 text-sm font-mono">
+        <p>Designed & Built by Suraj Nair</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Typewriter Effect
+        const roles = ["Web Developer", "Cybersecurity Enthusiast", "Python Programmer"];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+        
+        (function type() {
+            if (count === roles.length) { count = 0; }
+            currentText = roles[count];
+            letter = currentText.slice(0, ++index);
+            
+            document.getElementById("typewriter").textContent = letter;
+            
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000); // Wait before next word
+            } else {
+                setTimeout(type, 100);
+            }
+        })();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById("mobile-menu-btn");
+        const menu = document.getElementById("mobile-menu");
+        
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-cyber-dark/90', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-cyber-dark/90', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+    </script>
 </body>
+</html>
